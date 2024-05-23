@@ -22,4 +22,23 @@ public class Student : Person
     {
         return Courses;
     }
+
+    public static void ListStudentCoursesByDate(
+        List<Student> students,
+        DateTime startDate,
+        DateTime endDate
+    )
+    {
+        foreach (var student in students)
+        {
+            List<Course> filteredCourses = student
+                .GetCourses()
+                .Where(c => c.StartDate <= startDate && c.EndDate >= endDate)
+                .ToList();
+            foreach (var course in filteredCourses)
+            {
+                Console.WriteLine("Student " + student.Name + " is in " + course.Name + " course");
+            }
+        }
+    }
 }
