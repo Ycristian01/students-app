@@ -7,29 +7,22 @@ class Program
         try
         {
             //register students
-            Student student1 = new Student("Alvarito Diaz", 21);
-            Student student2 = new Student("Nicki Nicole", 18);
-            Student student3 = new Student("Bad bo", 20);
+            Student student1 = new("Alvarito Diaz", 21);
+            Student student2 = new("Nicki Nicole", 18);
+            Student student3 = new("Bad bo", 20);
 
             //register courses
-            Course chemistryClass = new Course(
-                "How to cook crystal",
-                1000,
-                DateTime.Now,
-                DateTime.Now.AddMonths(6)
-            );
-            Course programingClass = new Course(
-                "Programming with nodejs",
-                2000,
-                DateTime.Now,
-                DateTime.Now.AddMonths(5)
-            );
-            Course mathClass = new Course(
-                "Finances for dummies",
-                0,
-                DateTime.Now,
-                DateTime.Now.AddMonths(2)
-            );
+            Course chemistryClass =
+                new(
+                    "How to cook crystal",
+                    1000,
+                    DateTime.Now.AddMonths(1),
+                    DateTime.Now.AddMonths(6)
+                );
+            Course programingClass =
+                new("Programming with nodejs", 2000, DateTime.Now, DateTime.Now.AddMonths(4));
+            Course mathClass =
+                new("Finances for dummies", 0, DateTime.Now, DateTime.Now.AddMonths(2));
 
             //register students to courses
             student1.RegisterToCourse(chemistryClass);
@@ -41,12 +34,12 @@ class Program
 
             student3.RegisterToCourse(mathClass);
 
-            Console.WriteLine("student 2 courses:");
-            foreach (var course in student2.GetCourses())
-            {
-                //todo: implement filter byv range of dates
-                Console.WriteLine(course.Name);
-            }
+            //print students courses with range of dates filter
+            Console.WriteLine("students courses by range of dates:");
+            DateTime startDate = DateTime.Now;
+            DateTime endDate = DateTime.Now.AddMonths(3);
+
+            Student.ListStudentCoursesByDate([student1, student2, student3], startDate, endDate);
         }
         catch (Exception e)
         {
