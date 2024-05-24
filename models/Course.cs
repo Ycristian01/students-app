@@ -5,26 +5,20 @@ public class Course
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 
-    public List<Student> Students { get; set; }
+    public readonly PaymentGateway PaymentGateway = new();
 
-    public Course(string name, int registrationFee, DateTime startDate, DateTime endDate)
+    public Course(
+        string name,
+        int registrationFee,
+        DateTime startDate,
+        DateTime endDate,
+        PaymentGateway paymentGateway
+    )
     {
         Name = name;
         RegistrationFee = registrationFee;
         StartDate = startDate;
         EndDate = endDate;
-        Students = new List<Student>();
-    }
-
-    public void RegisterStudent(Student student)
-    {
-        if (!Students.Contains(student))
-            //todo: implement payment gateway
-            Students.Add(student);
-    }
-
-    public List<Student> GetStudents()
-    {
-        return Students;
+        PaymentGateway = paymentGateway;
     }
 }
