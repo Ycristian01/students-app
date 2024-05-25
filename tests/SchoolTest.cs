@@ -5,8 +5,8 @@ public class SchoolTest
     [Fact]
     public void School_Create_Succesfully()
     {
-        var school = new School("School of EasyVard");
-        Assert.Equal("School of EasyVard", school.Name);
+        var school = new School("ACME school");
+        Assert.Equal("ACME school", school.Name);
     }
 
     [Fact]
@@ -18,7 +18,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudent_Succesfully()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("John Doe", 31);
         school.RegisterStudent(student);
 
@@ -28,7 +28,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudent_AlreadyContainsStudent()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("John Doe", 31);
         school.RegisterStudent(student);
 
@@ -39,7 +39,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudent_AgeException()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("John Doe", 16);
 
         Assert.Throws<ArgumentException>(() => school.RegisterStudent(student));
@@ -49,7 +49,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterCourse_Succesfully()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var course = new Course(
             "How to cook chicken",
             100,
@@ -66,7 +66,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterCourse_AlreadyContainsCourse()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var course = new Course(
             "How to cook chicken",
             100,
@@ -83,7 +83,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudentToCourse_Succesfully()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("Nicki Nicole", 18);
         var paymentGateway = new PaymentGateway();
         var course = new Course(
@@ -107,7 +107,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudentToCourse_NotRegisteredStudentException()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("Nicki Nicole", 18);
         var paymentGateway = new PaymentGateway();
         var course = new Course(
@@ -129,7 +129,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudentToCourse_NotRegisteredCourseException()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("Nicki Nicole", 18);
         var paymentGateway = new PaymentGateway();
         var course = new Course(
@@ -151,7 +151,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudentToCourse_InvalidPaymentAmountException()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("Nicki Nicole", 18);
         var paymentGateway = new PaymentGateway();
         var course = new Course(
@@ -172,7 +172,7 @@ public class SchoolTest
     [Fact]
     public void School_RegisterStudentToCourse_NoPaymentException()
     {
-        var school = new School("School of EasyVard");
+        var school = new School("ACME school");
         var student = new Student("Nicki Nicole", 18);
         var paymentGateway = new PaymentGateway();
         var course = new Course(

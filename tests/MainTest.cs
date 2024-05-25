@@ -6,7 +6,7 @@ public class MainTest
     public void Main_Succesfully()
     {
         //init school
-        School school = new("School of EasyVard");
+        School school = new("ACME school");
 
         //init payment gateway
         PaymentGateway paymentGateway = new();
@@ -14,7 +14,7 @@ public class MainTest
         //create students
         Student student1 = new("Alvaro Diaz", 21);
         Student student2 = new("Nicki Nicole", 18);
-        Student student3 = new("Bad Bunny", 20);
+        Student student3 = new("Sergio Ramos", 20);
 
         //register students to school
         school.RegisterStudent(student1);
@@ -97,6 +97,8 @@ public class MainTest
         //print students courses with range of dates filter
         DateTime startDate = DateTime.Now.AddMonths(1);
         DateTime endDate = DateTime.Now.AddMonths(2);
+
+        Console.WriteLine("Students courses between " + startDate + " and " + endDate);
 
         //filtered student1 courses
         var filteredStudent1Courses = student1.ListStudentCoursesByDate(startDate, endDate);
