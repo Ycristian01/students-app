@@ -1,6 +1,6 @@
 # Students App
 
-This is my attempt at the AnalyticAlways code challenge.
+This is my attempt at the code challenge.
 
 # Discussion
 
